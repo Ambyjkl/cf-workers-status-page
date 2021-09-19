@@ -11,8 +11,9 @@ crons = ["* * * * *"]
 bucket = "out"
 entry-point = "./"
 
-# uncomment and adjust following if you are not using GitHub Actions
-#[env.production]
-#kv-namespaces = [{binding="KV_STATUS_PAGE", id="xxxx", preview_id=""}]
-#zone_id="xxx"
-#route="xxx"
+[env.production]
+kv_namespaces = [{binding="KV_STATUS_PAGE", id="45336a08f12142bda86ec0df76d15a44"}]
+zone_id="12eb63d5acf8a3ccdbbc217a71fb2d38"
+routes = [
+  "status.hyperbeam.com/*",
+]
