@@ -16,10 +16,26 @@ settings:
 
 monitors:
   - id: hyperbeam-heartbeat # unique identifier
-    name: Hyperbeam Heartbeat
-    description: 'Vaporize the distance' # default=empty
+    name: Hyperbeam Watch Party
+    description: '' # default=empty
     url: 'https://api.hyperbeam.com/heartbeat' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
+    followRedirect: false # should fetch follow redirects, default=false
+    linkable: false # allows the title to be a link, default=true
+  - id: engine-heartbeat # unique identifier
+    name: Hyperbeam API Production
+    description: '' # default=empty
+    url: 'https://engine.hyperbeam.com/' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 404 # operational status, default=200
+    followRedirect: false # should fetch follow redirects, default=false
+    linkable: false # allows the title to be a link, default=true
+  - id: enginetest-heartbeat # unique identifier
+    name: Hyperbeam API Testing
+    description: '' # default=empty
+    url: 'https://enginetest.hyperbeam.com/' # URL to fetch
+    method: GET # default=GET
+    expectStatus: 404 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
     linkable: false # allows the title to be a link, default=true
