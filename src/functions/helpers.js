@@ -3,13 +3,6 @@ import { useEffect, useState } from 'react'
 
 const kvDataKey = 'monitors_data_v1_1'
 
-export const locations = {
-  WAW: 'Warsaw',
-  SCL: 'Santiago de Chile',
-  MEL: 'Melbourne',
-  SIN: 'Singapore',
-}
-
 export async function getKVMonitors() {
   // trying both to see performance difference
   return KV_STATUS_PAGE.get(kvDataKey, 'json')
@@ -34,6 +27,7 @@ export async function notifySlack(monitor, operational) {
   const payload = {
     attachments: [
       {
+        fallback: `Monitor ${monitor.name} changed status to ${getOperationalLabel(operational)}`,
         color: operational ? '#36a64f' : '#f2c744',
         blocks: [
           {
@@ -70,7 +64,7 @@ export async function notifySlack(monitor, operational) {
 }
 
 export async function notifyTelegram(monitor, operational) {
-  const text = `Monitor *${monitor.name.replace(
+  const text = `Monitor *${monitor.name.replaceAll(
     '-',
     '\\-',
   )}* changed status to *${getOperationalLabel(operational)}*
