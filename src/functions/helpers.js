@@ -108,6 +108,21 @@ export async function notifyDiscord(monitor, operational) {
   })
 }
 
+export async function notifyMisc(monitor, operational) {
+  const payload = {
+    monitor: monitor.id,
+    operational,
+  }
+  return fetch(SECRET_MISC_WEBHOOK_URL, {
+    body: JSON.stringify(payload),
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': SECRET_MISC_WEBHOOK_KEY,
+    },
+  })
+}
+
 export function useKeyPress(targetKey) {
   const [keyPressed, setKeyPressed] = useState(false)
 
