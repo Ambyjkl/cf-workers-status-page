@@ -89,6 +89,7 @@ export async function notifyDiscord(monitor, operational) {
   const payload = {
     username: `${config.settings.title}`,
     avatar_url: `${config.settings.url}/${config.settings.logo}`,
+    content: operational ? undefined : SECRET_DISCORD_DOWN_CONTENT,
     embeds: [
       {
         title: `${monitor.name} is ${getOperationalLabel(operational)} ${

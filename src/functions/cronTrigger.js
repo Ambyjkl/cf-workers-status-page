@@ -59,15 +59,20 @@ export async function processCronTrigger(event) {
     // Determine whether operational and status changed
     const monitorOperational =
       checkResponse.status === (monitor.expectStatus || 200)
-    const monitorStatusChanged =
-      monitorsState.monitors[monitor.id].lastCheck.operational !==
-      monitorOperational
+    const lastMonitorFails =
+      monitorsState.monitors[monitor.id].lastCheck.fails
+    const failThreshold = 3
+    const fails = monitorOperational ? 0 :
+      Math.min(lastMonitorFails + 1, failThreshold) 
+    const monitorStatusChanged = monitorOperational ?
+      lastMonitorFails === failThreshold :   // down ->  up
+      lastMonitorFails === failThreshold - 1 //  up  -> down
 
     // Save monitor's last check response status
     monitorsState.monitors[monitor.id].lastCheck = {
       status: checkResponse.status,
       statusText: checkResponse.statusText,
-      operational: monitorOperational,
+      fails,
     }
 
     // Send Slack message on monitor change

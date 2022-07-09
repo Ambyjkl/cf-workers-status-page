@@ -11,8 +11,9 @@ export default function MonitorStatusLabel({ kvMonitor }) {
   let color = 'gray'
   let text = 'No data'
 
+  const failThreshold = 3
   if (typeof kvMonitor !== 'undefined') {
-    if (kvMonitor.lastCheck.operational) {
+    if (kvMonitor.lastCheck.fails !== failThreshold) {
       color = 'green'
       text = config.settings.monitorLabelOperational
     } else {
