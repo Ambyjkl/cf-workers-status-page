@@ -27,7 +27,7 @@ monitors:
   - id: na-heartbeat
     name: NA Region
     description: ''
-    url: 'https://engine.hyperbeam.com/vm/ok/reg=NA'
+    url: 'https://engine.hyperbeam.com/vm/ok?reg=NA'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -36,7 +36,7 @@ monitors:
   - id: eu-heartbeat
     name: EU Region
     description: ''
-    url: 'https://engine.hyperbeam.com/vm/ok/reg=EU'
+    url: 'https://engine.hyperbeam.com/vm/ok?reg=EU'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -45,7 +45,7 @@ monitors:
   - id: as-heartbeat
     name: AS Region
     description: ''
-    url: 'https://engine.hyperbeam.com/vm/ok/reg=AS'
+    url: 'https://engine.hyperbeam.com/vm/ok?reg=AS'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -54,7 +54,7 @@ monitors:
   - id: na-gpu-heartbeat
     name: NA GPU Region
     description: ''
-    url: 'https://engine.hyperbeam.com/vm/ok/reg=NA&gpu'
+    url: 'https://engine.hyperbeam.com/vm/ok?reg=NA&gpu'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -63,7 +63,7 @@ monitors:
   - id: eu-gpu-heartbeat
     name: EU GPU Region
     description: ''
-    url: 'https://engine.hyperbeam.com/vm/ok/reg=EU&gpu'
+    url: 'https://engine.hyperbeam.com/vm/ok?reg=EU&gpu'
     method: GET
     expectStatus: 200
     followRedirect: false
@@ -72,7 +72,7 @@ monitors:
   - id: as-gpu-heartbeat
     name: AS GPU Region
     description: ''
-    url: 'https://engine.hyperbeam.com/vm/ok/reg=AS&gpu'
+    url: 'https://engine.hyperbeam.com/vm/ok?reg=AS&gpu'
     method: GET
     expectStatus: 200
     followRedirect: false
