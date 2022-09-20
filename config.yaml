@@ -16,26 +16,73 @@ settings:
 
 monitors:
   - id: engine-heartbeat # unique identifier
-    name: Hyperbeam API Production
+    name: Dispatch API
     description: '' # default=empty
-    url: 'https://engine.hyperbeam.com/' # URL to fetch
-    method: GET # default=GET
-    expectStatus: 404 # operational status, default=200
-    followRedirect: false # should fetch follow redirects, default=false
-    linkable: false # allows the title to be a link, default=true
-  - id: enginetest-heartbeat # unique identifier
-    name: Hyperbeam API Testing
-    description: '' # default=empty
-    url: 'https://enginetest.hyperbeam.com/' # URL to fetch
-    method: GET # default=GET
-    expectStatus: 404 # operational status, default=200
-    followRedirect: false # should fetch follow redirects, default=false
-    linkable: false # allows the title to be a link, default=true
-  - id: hyperbeam-heartbeat # unique identifier
-    name: Hyperbeam Watch Party
-    description: '' # default=empty
-    url: 'https://api.hyperbeam.com/heartbeat' # URL to fetch
+    url: 'https://engine.hyperbeam.com/ok' # URL to fetch
     method: GET # default=GET
     expectStatus: 200 # operational status, default=200
     followRedirect: false # should fetch follow redirects, default=false
-    linkable: false # allows the title to be a link, default=true
+    linkable: true # allows the title to be a link, default=true
+
+  - id: na-heartbeat
+    name: NA Region
+    description: ''
+    url: 'https://engine.hyperbeam.com/vm/ok/reg=NA'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: true
+
+  - id: eu-heartbeat
+    name: EU Region
+    description: ''
+    url: 'https://engine.hyperbeam.com/vm/ok/reg=EU'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: true
+
+  - id: as-heartbeat
+    name: AS Region
+    description: ''
+    url: 'https://engine.hyperbeam.com/vm/ok/reg=AS'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: true
+
+  - id: na-gpu-heartbeat
+    name: NA GPU Region
+    description: ''
+    url: 'https://engine.hyperbeam.com/vm/ok/reg=NA&gpu'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: true
+
+  - id: eu-gpu-heartbeat
+    name: EU GPU Region
+    description: ''
+    url: 'https://engine.hyperbeam.com/vm/ok/reg=EU&gpu'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: true
+
+  - id: as-gpu-heartbeat
+    name: AS GPU Region
+    description: ''
+    url: 'https://engine.hyperbeam.com/vm/ok/reg=AS&gpu'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: true
+
+  - id: hyperbeam-heartbeat
+    name: Watch Party
+    description: ''
+    url: 'https://api.hyperbeam.com/heartbeat'
+    method: GET
+    expectStatus: 200
+    followRedirect: false
+    linkable: true
